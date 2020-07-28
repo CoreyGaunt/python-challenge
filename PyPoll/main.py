@@ -1,22 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[11]:
-
 
 # import dependencies
 import os, csv
 
-
-# In[12]:
-
-
 # import file from folder
 polls = os.path.join ("Resources","pypoll_election_data.csv")
-
-
-# In[13]:
-
 
 # creating my variables
 votes_cast = []
@@ -25,10 +12,6 @@ k_count = 0
 c_count = 0
 l_count = 0
 o_count = 0
-
-
-# In[14]:
-
 
 # opening the file to read in the information
 with open(polls,encoding='utf-8') as file:
@@ -53,10 +36,6 @@ with open(polls,encoding='utf-8') as file:
         elif row[2] == "O'Tooley":
             o_count += 1
 
-
-# In[15]:
-
-
 # This block of code will give me the list of candidates people 
        # voted for in this election period
        #unique_can = []
@@ -64,26 +43,14 @@ with open(polls,encoding='utf-8') as file:
        #if candidate not in unique_can:
            #unique_can.append(candidate)
 
-
-# In[16]:
-
-
 # generate total votes
 total_votes = len(votes_cast)
-
-
-# In[17]:
-
 
 #generate candidate percentages
 k_percent = (k_count / total_votes) * 100
 c_percent = (c_count / total_votes) * 100
 l_percent = (l_count / total_votes) * 100
 o_percent = (o_count / total_votes) * 100
-
-
-# In[18]:
-
 
 # selecting the winner of the election
 # found online that making a dictionary out of the items would be best
@@ -95,10 +62,6 @@ results = {"Khan":k_count,
 # I found this code online - essentially what I'm doing here is calling a max function
 # on my results list, then calling a get function on the key
 winner = max(results, key=results.get)
-
-
-# In[19]:
-
 
 # Print Statements
 print("Election Results")
@@ -112,10 +75,6 @@ print(f"O'Tooley: {o_percent:.3f}% ({o_count})")
 print("------------------------")
 print(f'Winner: {winner}')
 print("------------------------")
-
-
-# In[20]:
-
 
 # Output
 
@@ -132,10 +91,3 @@ with open(output_file, "w") as textfile:
     textfile.write("------------------------ \n")
     textfile.write(f'Winner: {winner}\n')
     textfile.write("------------------------")
-
-
-# In[ ]:
-
-
-
-
